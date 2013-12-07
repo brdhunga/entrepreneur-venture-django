@@ -1,0 +1,53 @@
+
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+
+
+<!--=== Breadcrumbs ===-->
+<div class="breadcrumbs margin-bottom-40">
+	<div class="container">
+        <h1 class="color-green pull-left">Account Registration</h1>
+        <ul class="pull-right breadcrumb">
+            <li><a href="/">Home</a> <span class="divider">/</span></li>
+            <li><a href="#">Accounts</a> <span class="divider">/</span></li>
+            <li class="active">Sign Up</li>
+        </ul>
+    </div><!--/container-->
+</div><!--/breadcrumbs-->
+<!--=== End Breadcrumbs ===-->
+
+<!--=== Content Part ===-->
+<div class="container">		
+	<div class="row-fluid">
+        <div class = "span4"></div>
+        <div class = "span4">
+
+        <form class="log-page" method = "post" action = ".">
+        {% csrf_token %} 
+            <h3>Sign Up for an account</h3>
+            {{ form.as_p }}
+            
+            <div class="controls form-inline">
+                <button class="btn-u pull-right" type="submit" value="{% trans 'Submit' %}">Sign Up</button>
+
+                
+            </div>
+            <br>
+            <hr />
+            <!--<p><a href="#" class="btn-u hover-effect purchase pull-right">&nbsp;&nbsp;Sign Up Now&nbsp;&nbsp;</a></p><br>
+            <hr />-->
+            <h4>Already have an account?</h4>
+            <p>no worries,  <a href="/accounts/login">click here.</a></p>
+                        
+        </form>
+        </div>
+        <div class = "span4"></div>
+        
+    </div><!--/row-fluid-->
+</div><!--/container-->		
+<!--=== End Content Part ===-->
+
+
+{% endblock %}

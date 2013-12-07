@@ -1,0 +1,44 @@
+
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+<!--=== Breadcrumbs ===-->
+<div class="breadcrumbs margin-bottom-40">
+	<div class="container">
+        <h1 class="color-green pull-left">Account Activation</h1>
+        <ul class="pull-right breadcrumb">
+            <li><a href="/">Home</a> <span class="divider">/</span></li>
+            <li><a href="#">Accounts</a> <span class="divider">/</span></li>
+            <li class="active">Activation</li>
+        </ul>
+    </div><!--/container-->
+</div><!--/breadcrumbs-->
+<!--=== End Breadcrumbs ===-->
+
+<div class="container">		
+	<div class="row-fluid">
+        <div class = "span4"></div>
+        <div class = "span4">
+
+        <br>
+        <br>
+        <br>
+        
+        <h2>{% trans "Activation email sent. Please check your email." %}</h2>
+        <p><a href = "/accounts/login">And, click here to login </a></p>
+
+        <br>
+        <br>
+		<br>
+        <br>
+
+        
+        </div>
+        <div class = "span4"></div>
+        
+    </div><!--/row-fluid-->
+</div><!--/container-->		
+
+<p></p>
+{% endblock %}

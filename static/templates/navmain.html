@@ -1,0 +1,71 @@
+<div class="top">
+    <div class="container">                 
+        <div class="row-fluid">
+            <ul class="loginbar inline">
+                <li><a href="mailto:info@anybiz.com"><i class="icon-envelope-alt"></i> info@pitchbase.net</a></li> 
+                <li><a><i class="icon-phone-sign"></i> 010 4202 2656</a></li>
+                {% if user.is_authenticated %} 
+                <li><a href="{% url 'userena_signin' %}"><i class="icon-user"></i> LOGIN</a></li>
+                {% else %}
+                <li><a href="{% url 'userena_signout' %}"><i class="icon-user"></i> LOGOUT</a></li>
+                {% endif %}
+
+            </ul>
+        </div>                        
+    </div><!--/container-->     
+</div><!--/top-->
+<!--=== End Top ===-->    
+<!--=== Header ===-->
+<div class="header">               
+    <div class="container"> 
+        <!-- Logo -->       
+        <div class="logo">                                             
+            <a href="/"><img src="{{ STATIC_URL }}img/new pitchbase logo white red.png" alt="Logo" width="202" height="40" id="logo-header"></a>
+</div><!-- /logo -->        
+                                    
+        <!-- Menu -->       
+        <div class="navbar">                                
+            <div class="navbar-inner">                                  
+                <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </a><!-- /nav-collapse -->                                  
+                <div class="nav-collapse collapse">                                     
+                    <ul class="nav">
+
+                        <li id = "home" > <a href="/" >Home  </a> </li>
+                        <li id = "services"> <a href="/services/" >What We Do  </a> </li>
+                        <li id = "pricing" > <a href="/price/" > Pricing  </a> </li>
+                         <li id = "account" > <a href="{% url 'ent_home' %}" > Account  </a> </li>
+
+
+                        <!--<li>
+                            <a href="/services/" class="dropdown-toggle" data-toggle="dropdown">What We Do </a>
+                               <b class="caret"></b>                            
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="../Submitted/page_services.html">Entrepreneurs</a></li>
+                                <li><a href="../Submitted/page_services.html">Startup Accelerators</a></li>
+                                <li><a href="../Submitted/page_services.html">Mentors</a></li>
+                            </ul> 
+                            <b class="caret-out"></b>                        
+                        </li> -->
+                        
+                       
+                        <li><a class="search search-nav"><i class="icon-search search-btn"></i></a></li>                                
+                    </ul>
+                    <div class="search-open search-open-inner">
+                        <div class="input-append">
+                            <form>
+                                <input type="text" class="span3" placeholder="Search" />
+                                <button type="submit" class="btn-u">Search</button>
+                            </form>
+                        </div>
+                    </div>
+                </div><!-- /nav-collapse -->                                
+            </div><!-- /navbar-inner -->
+        </div><!-- /navbar -->                          
+    </div><!-- /container -->               
+</div><!--/header -->      
+<!--=== End Header ===-->

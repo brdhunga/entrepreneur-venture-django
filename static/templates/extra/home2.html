@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% include 'navmain.html' %}
+<!--=== Slider ===-->
+<div class="slider-inner">
+    <div id="da-slider" class="da-slider">
+        <div class="da-slide">
+            <h2><i>Bringing the right</i> <br /> <i>People together</i></h2>
+            <p><i>Getting into the best</i> <br /> <i>Startup Accelerator for you</i> <br /> <i>Just got a lot easier</i></p>
+            <div class="da-img"><img src="file:///Macintosh HD/Users/user/Documents/slider circle trio.png" alt="" /></div>
+        </div>
+        <div class="da-slide">
+            <h2><i>RESPONSIVE VIDEO</i> <br /> <i>SUPPORT AND</i> <br /> <i>MANY MORE</i></h2>
+            <p><i>Lorem ipsum dolor amet</i> <br /> <i>tempor incididunt ut</i></p>
+            <div class="da-img span6">
+                <div class="span6">
+                    <iframe src="http://player.vimeo.com/video/47911018" width="100%" height="320" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe> 
+                </div>
+            </div>
+        </div>
+        <div class="da-slide">
+            <h2><i>USING BEST WEB</i> <br /> <i>SOLUTIONS WITH</i> <br /> <i>HTML5/CSS3</i></h2>
+            <p><i>Lorem ipsum dolor amet</i> <br /> <i>tempor incididunt ut</i> <br /> <i>veniam omnis </i></p>
+            <div class="da-img"><img src="../Submitted/assets/plugins/parallax-slider/img/html5andcss3.png" alt="image01" /></div>
+        </div>
+        <nav class="da-arrows">
+            <span class="da-arrows-prev"></span>
+            <span class="da-arrows-next"></span>        
+        </nav>
+    </div><!--/da-slider-->
+</div><!--/slider-->
+<!--=== End Slider ===-->
+
+<!-- Purchase Block -->
+<div class="row-fluid purchase margin-bottom-30">
+    <div class="container">
+        <div class="span9">
+            <span>Pitchbase is the smarter app submission engine</span>
+            <p>Whether you're an entrepreneur, a mentor, or a startup accelerator, Pitchbase will simplify your work and improve its quality with smart, easy solutions</p></div>
+        <a href="{% url 'userena_signup' %}" class="btn-buy hover-effect">Register Now</a>
+    </div>
+</div><!--/row-fluid-->
+<!-- End Purchase Block -->
+
+<!--=== Content Part ===-->
+<div class="container">     
+    <!-- Service Blocks -->
+    <div class="row-fluid servive-block">
+        <div class="span4">
+            <h3>Entrepreneurs</h3>
+            <p><i class="icon-sitemap"></i></p>
+            <p>Easily submit more applications, and find better help to get into the right accelerator.</p>
+        </div>
+        <div class="span4">
+            <h3>Mentors</h3>
+            <p><i class="icon-tasks"></i></p>
+            <p>With objective-based conversations and entrepreneur task-tracking, mentoring just got a lot simpler</p>
+        </div>
+        <div class="span4">
+            <h3>Startup Accelerators</h3>
+            <p><i class="icon-dashboard"></i></p>
+            <p>Reach out to more applicants, and learn more from their submissions and the mentors who recommend them.</p>
+        </div>
+    </div><!--/row-fluid-->
+    <!-- //End Service Blokcs -->
+
+</div><!--/container-->     
+<!-- End Content Part -->
+{% endblock %}

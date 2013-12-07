@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% include 'navmain.html' %}
+
+<!--=== Breadcrumbs ===-->
+<div class="breadcrumbs margin-bottom-40">
+	<div class="container">
+        <h1 class="color-green pull-left">My Account: My Ventures</h1>
+        <ul class="pull-right breadcrumb">
+            <li><a href="/">Home</a> <span class="divider">/</span></li>
+            <li><a href="{% url 'ent_home' %}">Account</a> <span class="divider">/</span></li>
+            <li class="active" >Ventures</li>
+        </ul>
+    </div><!--/container-->
+</div><!--/breadcrumbs-->
+<!--=== End Breadcrumbs ===-->
+
+<!--=== Content Part ===-->
+<div class="container">		
+	<div class="row-fluid">
+        <div class = "span3">
+            
+             <br>
+            <br>
+                        
+             <ul class="nav nav-tabs nav-stacked">
+                <li>
+                <a href="{% url 'ent_home' %}">Home</a>
+                </li>
+                <li >
+                <a href="{% url 'userena_profile_edit' user.username %}">Profile</a>
+                </li>
+                <li class="active">
+                <a href="{% url 'venture_list' %}">Ventures</a>
+                </li> 
+                <li>
+                <a href="/ent/applications/">Applications</a>
+                </li>
+                 <br>
+                 <br>
+            
+            </ul>      
+                        
+        </div>
+        <div class = "span1"></div>
+    
+    	<div class="span8">
+        <br>
+
+
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>VENTURE NAME</th>
+                  <th>NICKNAME</th>
+                  <th>CREATION DATE</th>
+                  <th>ACTION</th>
+                </tr>
+              </thead>
+              <tbody>
+              {% for ventures in object_list %}
+                <tr>
+                  <td>{{ ventures.id }}</td>
+                  <td>{{ ventures.venture_name }}</td>
+                  <td>{{ ventures.venture_nickname }}</td>
+                  <td>{{ ventures.created }}</td>
+                  <td><a href = "{% url 'venture_edit' ventures.id %}">edit</a></td>
+                </tr>
+              {% endfor %}
+                
+                <tr>
+                  <td></td>
+                  <td><a href = "{% url 'venture_add' %}">Add Venture</a></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+
+
+        	
+        	            
+        </div><!--/span8-->
+       
+        
+    </div><!--/row-fluid-->
+</div><!--/container-->		
+<!--=== End Content Part ===-->
+
+
+
+{% endblock %}
+
+
+
+
+
+{% block javascript %}
+  $("#account").addClass('active');
+{% endblock %}

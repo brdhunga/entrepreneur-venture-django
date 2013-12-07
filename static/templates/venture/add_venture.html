@@ -1,0 +1,145 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<!--=== Breadcrumbs ===-->
+<div class="breadcrumbs margin-bottom-40">
+	<div class="container">
+        <h1 class="color-green pull-left">My Account: Add Ventures</h1>
+        <ul class="pull-right breadcrumb">
+            <li><a href="/">Home</a> <span class="divider">/</span></li>
+            <li><a href="/ent/home">Account</a> <span class="divider">/</span></li>
+            <li><a href="/ent/home">Ventures</a> <span class="divider">/</span></li>
+            <li class="active">Add</li>
+        </ul>
+    </div><!--/container-->
+</div><!--/breadcrumbs-->
+<!--=== End Breadcrumbs ===-->
+
+<!--=== Content Part ===-->
+<div class="container">		
+	<div class="row-fluid">
+        <div class = "span3">
+            
+             <br>
+            <br>
+                        
+             <ul class="nav nav-tabs nav-stacked">
+                <li>
+                <a href="/ent/home/">Home</a>
+                </li>
+                <li>
+                <a href="/ent/profile">Profile</a>
+                </li>
+                <li  class="active">
+                <a href="/ent/ventures/">Ventures</a>
+                </li> 
+                <li>
+                <a href="/ent/applications/">Applications</a>
+                </li>
+                 <br>
+                 <br>
+            
+            </ul>      
+                        
+        </div>
+        <div class = "span1"></div>
+    
+    	<div class="span8">
+
+
+                     {% for field in form %}
+                     {{ field.error }}
+                     {% endfor %}
+
+                    <form  id = "default" class="log-page-wide pull-left" action = "#" method = "post">{% csrf_token %}
+
+                    <fieldset title="Step 1">
+                    <legend>description one</legend>
+                    <p><label for="id_user">User:</label> <select id="id_user" name="user">
+<option value="" selected="selected">---------</option>
+<option value="1">bivu</option>
+</select></p>
+<p><label for="id_venture_name">Venture name:</label> <input id="id_venture_name" maxlength="200" name="venture_name" type="text" /></p>
+<p><label for="id_venture_nickname">Venture nickname:</label> <input id="id_venture_nickname" maxlength="200" name="venture_nickname" type="text" /></p>
+<p><label for="id_industry">Industry:</label> <input id="id_industry" maxlength="200" name="industry" type="text" /></p>
+<p><label for="id_website">Website:</label> <input id="id_website" maxlength="50" name="website" type="text" /></p>
+<p><label for="id_legally_formed">Legally formed:</label> <input checked="checked" id="id_legally_formed" name="legally_formed" type="checkbox"/></p>
+<p><label for="id_other_team_members">Other team members:</label> <input id="id_other_team_members" maxlength="200" name="other_team_members" type="text" /></p>
+<p><label for="id_project_leader">Project leader:</label> <input checked="checked" id="id_project_leader" name="project_leader" type="checkbox" /></p>
+
+<hr>
+</fieldset>
+
+ <fieldset title="Step 2">
+<legend>description two</legend>
+<p><label for="id_chracterstics">Chracterstics:</label> <textarea cols="80" id="id_chracterstics" name="chracterstics" rows="10" class="field span10">
+</textarea></p>
+<p><label for="id_skills_lacking">Skills lacking:</label> <textarea cols="40" id="id_skills_lacking" name="skills_lacking" rows="10" class="field span10">
+</textarea></p>
+
+<hr>
+</fieldset>
+
+<fieldset title="Step 3">
+<legend>description three</legend>
+<p><label for="id_target_customers">Target customers:</label> <textarea cols="40" id="id_target_customers" name="target_customers" rows="10" class="field span10">
+</textarea></p>
+<p><label for="id_needs_satisfied">Needs satisfied:</label> <textarea cols="40" id="id_needs_satisfied" name="needs_satisfied" rows="10" class="field span10">
+</textarea></p>
+<p><label for="id_competitors">Competitors:</label> <textarea cols="40" id="id_competitors" name="competitors" rows="10" class="field span10">
+</textarea></p>
+<p><label for="id_free_alternatives">Free alternatives:</label> <textarea cols="40" id="id_free_alternatives" name="free_alternatives" rows="10" class="field span10">
+</textarea></p>
+
+
+<hr>
+</fieldset>
+
+<fieldset title="Step 4">
+<legend>description four</legend>
+<p><label for="id_how_meets_customer_needs">How meets customer needs:</label> <textarea cols="40" id="id_how_meets_customer_needs" name="how_meets_customer_needs" rows="10" class="field span10">
+</textarea></p>
+<p><label for="id_how_differentiate">How differentiate:</label> <textarea cols="40" id="id_how_differentiate" name="how_differentiate" rows="10" class="field span10">
+</textarea></p>
+<p><label for="id_describe_mvp">Describe mvp:</label> <textarea cols="40" id="id_describe_mvp" name="describe_mvp" rows="10" class="field span10">
+</textarea></p>
+
+<hr>
+</fieldset>
+
+<fieldset title="Step 5">
+<legend>description five</legend>
+<p><label for="id_launch_date">Launch date:</label> <input id="id_launch_date" name="launch_date" type="text" /></p>
+<p><label for="id_investment_needed">Investment needed:</label> <textarea cols="40" id="id_investment_needed" name="investment_needed" rows="2" class="field span10">
+</textarea></p>
+<p><label for="id_willing_to_relocate">Willing to relocate:</label> <input id="id_willing_to_relocate" name="willing_to_relocate" type="checkbox" /></p>
+</fieldset>
+<br>
+
+                    <input type = "submit" class="finish"  value = "Submit" />
+
+                </form>
+
+        	
+        	            
+        </div><!--/span9-->
+       
+        
+    </div><!--/row-fluid-->
+</div><!--/container-->		
+<!--=== End Content Part ===-->
+
+
+
+{% block javascript %}
+
+{% endblock %}
+
+
+
+
+
+
+
+{% endblock %}

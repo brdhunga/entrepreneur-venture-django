@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<!--[if IE 7]> <html lang="en" class="ie7"> <![endif]-->  
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->  
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->  
+<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->  
+<head>
+    <title>{% block title %}{% endblock %}PitchBase | Welcome</title>
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="This website is about pitchbase to-fill">
+    <meta name="author" content="This website is about pitchbase to-fill">
+    <meta name="copyright" content="Copyright (c) Bivu Raj Dhungana">
+    <meta name="keywords" content="Physics Blog, Philosophy Blog, Science, History, and theory of everything">
+    <meta property="og:title" content="Physics Blog "/>
+    <meta property="og:type" content="website" />
+    <meta property="og:description" content="And nobody said let there be light, but there was light. Can't explain that. " />
+
+    <!-- CSS Global Compulsory--> 
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/bootstrap-responsive.min.css">
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/header2.css">
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/style_responsive.css">
+    <link rel="stylesheet" href="{{ STATIC_URL }}assets/themes/default.css" id="style_color">
+    <link rel="stylesheet" href="{{ STATIC_URL }}css/style.css">
+    <link rel="shortcut icon" href="{{ STATIC_URL }}favicon.ico">        
+    <!-- CSS Implementing Plugins -->    
+    <link href="{{ STATIC_URL }}css/plugins/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ STATIC_URL }}assets/plugins/flexslider/flexslider.css" type="text/css" media="screen">      
+    <link rel="stylesheet" href="{{ STATIC_URL }}assets/plugins/parallax-slider/css/parallax-slider.css" type="text/css">
+    <link rel="stylesheet" href="{{ STATIC_URL }}assets/plugins/bxslider/jquery.bxslider.css">
+    <!-- CSS Theme -->    
+
+
+
+    <style>
+    .log-page-wide {
+            background: none repeat scroll 0 0 #FCFCFC;
+            border: 1px solid #EEEEEE;
+            box-shadow: 0 0 7px #EEEEEE;
+            margin: 0 auto;
+            padding: 20px;
+            padding-left: 40px;
+            width: 550px;
+        }
+        .stepy-titles { list-style: none; margin: 0; padding: 0; width: 100%; }
+.stepy-titles li { color: #DDD; cursor: pointer; font: bold 18px verdana; float: left; padding: 10px; }
+.stepy-titles li span { font: 11px verdana; display: block; }
+.stepy-titles .current-step { color:#72C02C; cursor: auto; }
+
+
+a.button-back, a.button-next {
+    background: none repeat scroll 0 0 #72C02C;
+    text-shadow: 0 1px 0 #51A00B;
+}
+a.button-back, a.button-next, a.finish {
+    background: none repeat scroll 0 0 #72C02C;
+    border-radius: 2px 2px 2px 2px;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 35px;
+    font-weight: bold;
+    margin-top: 22px;
+    padding: 12px 28px 9px;
+    text-decoration: none;
+    text-shadow: 0 1px 0 #51A00B;
+    text-transform: uppercase;
+}
+.button-back{float:left;}
+.button-next { float: right; }
+    </style>    
+
+</head>	
+
+<body>
+
+
+
+{% block content %}
+{% endblock %}
+
+{% include 'footer.html' %}
+
+<!-- JS Global Compulsory -->			
+<script type="text/javascript" src="{{ STATIC_URL }}assets/js/jquery-1.8.2.min.js"></script>
+<script type="text/javascript" src="{{ STATIC_URL }}assets/js/modernizr.custom.js"></script>        
+<script type="text/javascript" src="{{ STATIC_URL }}assets/plugins/bootstrap/js/bootstrap.min.js"></script> 
+<!-- JS Implementing Plugins -->           
+<script type="text/javascript" src="{{ STATIC_URL }}assets/plugins/flexslider/jquery.flexslider-min.js"></script>
+<script type="text/javascript" src="{{ STATIC_URL }}assets/plugins/parallax-slider/js/modernizr.js"></script>
+<script type="text/javascript" src="{{ STATIC_URL }}assets/plugins/parallax-slider/js/jquery.cslider.js"></script> 
+<script type="text/javascript" src="{{ STATIC_URL }}assets/plugins/bxslider/jquery.bxslider.js"></script>
+<script type="text/javascript" src="{{ STATIC_URL }}assets/plugins/back-to-top.js"></script>
+<!-- JS Page Level -->           
+<script type="text/javascript" src="{{ STATIC_URL }}assets/js/app.js"></script>
+<script type="text/javascript" src="{{ STATIC_URL }}assets/js/pages/index.js"></script>
+<script type="text/javascript">
+    jQuery(document).ready(function() {
+        App.init();
+        App.initSliders();
+        App.initBxSlider1();
+        Index.initParallaxSlider();
+        $("#{{ current }}").addClass('active');
+        {% block javascript %}{% endblock %}
+    });
+</script>
+</script>
+
+<!--[if lt IE 9]>
+    <script src="assets/js/respond.js"></script>
+<![endif]-->
+
+</body>
+</html>	

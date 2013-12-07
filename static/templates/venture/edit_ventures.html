@@ -1,0 +1,126 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<!--=== Breadcrumbs ===-->
+<div class="breadcrumbs margin-bottom-40">
+	<div class="container">
+        <h1 class="color-green pull-left">My Account: My Ventures</h1>
+        <ul class="pull-right breadcrumb">
+            <li><a href="/">Home</a> <span class="divider">/</span></li>
+            <li><a href="/ent/home">Account</a> <span class="divider">/</span></li>
+            <li class="active" >Ventures</li>
+        </ul>
+    </div><!--/container-->
+</div><!--/breadcrumbs-->
+<!--=== End Breadcrumbs ===-->
+
+<!--=== Content Part ===-->
+<div class="container">		
+	<div class="row-fluid">
+        <div class = "span3">
+            
+             <br>
+            <br>
+                        
+             <ul class="nav nav-tabs nav-stacked">
+                <li>
+                <a href="/ent/home/">Home</a>
+                </li>
+                <li >
+                <a href="/ent/profile">Profile</a>
+                </li>
+                <li class="active">
+                <a href="/ent/ventures/">Ventures</a>
+                </li> 
+                <li>
+                <a href="/ent/applications/">Applications</a>
+                </li>
+                 <br>
+                 <br>
+            
+            </ul>      
+                        
+        </div>
+        <div class = "span1"></div>
+    
+    	<div class="span8">
+        <br>
+
+            <form  id = "default" class="log-page-wide pull-left" action = "#" method = "post">{% csrf_token %}
+
+                    <fieldset title="Step 1">
+                    <legend>description one</legend>
+<p><label for="id_venture_name">Venture name:</label> {{ form.name }}</p>
+<p><label for="id_venture_nickname">Venture nickname:</label> {{ form.nickname }}</p>{{ form. }}
+<p><label for="id_industry">Industry:</label> {{ form.industry }}</p>
+<p><label for="id_website">Website:</label> {{ form.website }}</p>
+<p><label for="id_legally_formed">Legally formed:</label>{{ form.legally_formed }}</p>
+<p><label for="id_other_team_members">Other team members:</label> {{ form.other_team_members }}</p>
+<p><label for="id_project_leader">Project leader:</label> {{ form.project_leader }}</p>
+
+<hr>
+</fieldset>
+
+ <fieldset title="Step 2">
+<legend>description two</legend>
+<p><label for="id_chracterstics">Chracterstics:</label> {{ form.chracterstics }}</p>
+<p><label for="id_skills_lacking">Skills lacking:</label> {{ form.skills_lacking }}</p>
+
+<hr>
+</fieldset>
+
+<fieldset title="Step 3">
+<legend>description three</legend>
+<p><label for="id_target_customers">Target customers:</label>{{ form.target_customers }}</p>
+<p><label for="id_needs_satisfied">Needs satisfied:</label> {{ form.needs_satisfied }}</p>
+<p><label for="id_competitors">Competitors:</label> {{ form.competitors }}</p>
+<p><label for="id_free_alternatives">Free alternatives:</label> {{ form.free_alternatives }}</p>
+
+
+<hr>
+</fieldset>
+
+<fieldset title="Step 4">
+<legend>description four</legend>
+<p><label for="id_how_meets_customer_needs">How meets customer needs:</label> {{ form.how_meets_customer_needs }}</p>
+<p><label for="id_how_differentiate">How differentiate:</label>{{ form.how_differentiate }}}</p>
+<p><label for="id_describe_mvp">Describe mvp:</label> {{ form.describe_mvp }}</p>
+
+<hr>
+</fieldset>
+
+<fieldset title="Step 5">
+<legend>description five</legend>
+<p><label for="id_launch_date">Launch date:</label> {{ form.launch_date }}</p>
+<p><label for="id_investment_needed">Investment needed:</label> {{ form.investment_needed }}</p>
+<p><label for="id_willing_to_relocate">Willing to relocate:</label>{{ form.willing_to_relocate }}</p>
+</fieldset>
+<br>
+
+                    <input type = "submit" class="finish"  value = "Submit" />
+
+                </form>
+
+
+        	        	            
+        </div><!--/span8-->
+       
+        
+    </div><!--/row-fluid-->
+</div><!--/container-->		
+<!--=== End Content Part ===-->
+
+
+
+{% block javascript %}
+
+{% endblock %}
+
+
+
+
+
+
+
+{% endblock %}

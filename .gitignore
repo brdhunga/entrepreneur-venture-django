@@ -1,0 +1,12 @@
+venv/
+*.pyc
+django-registration
+old apps
+dakku
+settings-private.py
+userena/
+easy_thumbnails/
+bivu_nginx.conf
+bivu_uwsgi.ini
+mysite_nginx.conf
+mysite_uwsgi.ini

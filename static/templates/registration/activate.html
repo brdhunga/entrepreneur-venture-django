@@ -1,0 +1,54 @@
+
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+<!--=== Breadcrumbs ===-->
+<div class="breadcrumbs margin-bottom-40">
+	<div class="container">
+        <h1 class="color-green pull-left">Accounts</h1>
+        <ul class="pull-right breadcrumb">
+            <li><a href="index.html">Home</a> <span class="divider">/</span></li>
+            <li><a href="index.html">Accounts</a> <span class="divider">/</span></li>
+            <li class="active">Activate</li>
+        </ul>
+    </div><!--/container-->
+</div><!--/breadcrumbs-->
+<!--=== End Breadcrumbs ===-->
+
+<div class="container">		
+	<div class="row-fluid">
+        <div class = "span4"></div>
+        <div class = "span4">
+
+        <br>
+        <br>
+        <br>
+        
+        {% if account %}
+
+		<h2>{% trans "Account successfully activated" %}</h2>
+
+		<p><a href="{% url 'auth_login' %}">{% trans "Log in" %}</a></p>
+
+		{% else %}
+
+		<h2>{% trans "Account activation failed" %}</h2>
+
+		{% endif %}
+
+
+        <br>
+        <br>
+		<br>
+        <br>
+
+        
+        </div>
+        <div class = "span4"></div>
+        
+    </div><!--/row-fluid-->
+</div><!--/container-->		
+
+<p></p>
+{% endblock %}

@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<!--=== Breadcrumbs ===-->
+<div class="breadcrumbs margin-bottom-40">
+	<div class="container">
+        <h1 class="color-green pull-left">My Account: Profile</h1>
+        <ul class="pull-right breadcrumb">
+            <li><a href="/">Home</a> <span class="divider">/</span></li>
+            <li><a href="/ent/home">Account</a> <span class="divider">/</span></li>
+            <li class="active">Profile</li>
+        </ul>
+    </div><!--/container-->
+</div><!--/breadcrumbs-->
+<!--=== End Breadcrumbs ===-->
+
+<!--=== Content Part ===-->
+<div class="container">		
+	<div class="row-fluid">
+        <div class = "span3">
+            
+             <br>
+            <br>
+                        
+             <ul class="nav nav-tabs nav-stacked">
+                <li>
+                <a href="/ent/home/">Home</a>
+                </li>
+                <li class="active">
+                <a href="/ent/profile">Profile</a>
+                </li>
+                <li>
+                <a href="/ent/ventures/">Ventures</a>
+                </li> 
+                <li>
+                <a href="/ent/applications/">Applications</a>
+                </li>
+                 <br>
+                 <br>
+            
+            </ul>      
+                        
+        </div>
+        <div class = "span1"></div>
+    
+    	<div class="span8">
+
+                <h2>Profile</h2>
+
+                     {% for field in form %}
+                     {{ field.error }}
+                     {% endfor %}
+
+                    <form class="log-page pull-left" action = "/ent/profile/" method = "post">{% csrf_token %}
+
+                    {{ form.as_p }}
+
+                    <input type = "submit" value = "Update" />
+
+                </form>
+
+        	
+        	            
+        </div><!--/span9-->
+       
+        
+    </div><!--/row-fluid-->
+</div><!--/container-->		
+<!--=== End Content Part ===-->
+
+{% endblock %}

@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+
+
+<!--=== Breadcrumbs ===-->
+<div class="breadcrumbs margin-bottom-40">
+	<div class="container">
+        <h1 class="color-green pull-left">Login</h1>
+        <ul class="pull-right breadcrumb">
+            <li><a href="index.html">Home</a> <span class="divider">/</span></li>
+            <li class="active">Login</li>
+        </ul>
+    </div><!--/container-->
+</div><!--/breadcrumbs-->
+<!--=== End Breadcrumbs ===-->
+
+<!--=== Content Part ===-->
+<div class="container">		
+	<div class="row-fluid">
+        <div class = "span4"></div>
+        <div class = "span4">
+
+        <form class="log-page" method = "post" action = ".">
+        {% csrf_token %} 
+            <h3>Login to your account</h3>    
+            <div class="input-prepend">
+                <span class="add-on"><i class="icon-user"></i></span>
+                <input class="input-xlarge" type="text" id="id_username" name="username" placeholder="Username" >
+            </div>
+            <div class="input-prepend">
+                <span class="add-on"><i class="icon-lock"></i></span>
+                <input class="input-xlarge" type="password"  id="id_password" name="password" placeholder="Password">
+            </div>
+            <div class="controls form-inline">
+                <label class="checkbox"><input type="checkbox" /> Stay Signed in</label>
+                <button class="btn-u pull-right" type="submit" value="{% trans 'Log in' %}">Login</button>
+                <input type="hidden" name="next" value="{{ next }}" />
+            </div>
+            <hr />
+            <!--<p><a href="#" class="btn-u hover-effect purchase pull-right">&nbsp;&nbsp;Sign Up Now&nbsp;&nbsp;</a></p><br>
+            <hr />-->
+            <h4>{% trans "Forgot password" %}?</h4>
+            <p>no worries,  <a href="{% url 'auth_password_reset' %}">{% trans "click here" %}</a> to reset your password.</p>
+            <h4>{% trans "Not a member" %}?</h4>
+            <p>Please Join us:  <a href="{% url 'registration_register' %}">{% trans "Register" %}</a>.</p>
+            
+        </form>
+        </div>
+        <div class = "span4"></div>
+        
+    </div><!--/row-fluid-->
+</div><!--/container-->		
+<!--=== End Content Part ===-->
+
+
+{% endblock %}
