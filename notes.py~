@@ -1,0 +1,17 @@
+A duplicate model of Venture but with additional field of entreprenuer
+and notes. 
+
+Then, another clients field where each time someone applies, their username gets added to the client field. 
+Optional: In addition, there will also be a note field where they can
+notes of the clients. 
+
+Now there will be two items on the sub-menu:
+
+Clients:
+--So it will fetch a list of clients from the client model. 
+--
+
+
+Applications:
+
+

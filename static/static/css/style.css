@@ -1861,3 +1861,19 @@ i.style-switcher-btn-option:hover {
 	padding: 7px;
 	text-shadow: none !important;
 }
+
+
+.step-box {
+    background: none repeat scroll 0 0 #FCFCFC;
+    border: 1px solid #EEEEEE;
+    box-shadow: 0 0 7px #EEEEEE;
+    padding: 20px;
+}
+
+h1.red{
+	color: #666666;
+    display: block;
+    font-size: 32px;
+    line-height: 35px;
+    margin-bottom: 12px;
+}

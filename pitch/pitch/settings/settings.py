@@ -8,8 +8,8 @@ TEMPLATE_DEBUG = DEBUG
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = ''
-EMAIL_HOST_PASSWORD = ''
+EMAIL_HOST_USER = 'brdhunga@gmail.com'
+EMAIL_HOST_PASSWORD = 'Bnmjh10z@gmai'
 
 
 
@@ -17,7 +17,7 @@ PROJECT_PATH = os.path.dirname(os.getcwd())
 
 
 ADMINS = (
-    ('Bivu Raj Dhungana', ''),
+    ('Bivu Raj Dhungana', 'brdhunga@gmail.com'),
 )
 
 MANAGERS = ADMINS
@@ -25,7 +25,7 @@ MANAGERS = ADMINS
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': '',                      # Or path to database file if using sqlite3.
+        'NAME': 'pitch.db',                      # Or path to database file if using sqlite3.
         # The following settings are not used with sqlite3:
         'USER': '',
         'PASSWORD': '',
@@ -97,7 +97,7 @@ STATICFILES_FINDERS = (
 )
 
 # Make this unique, and don't share it with anybody.
-SECRET_KEY = ''
+SECRET_KEY = '!a(eey*92jsl!!-dp9$10l!vo+4x1-bu)8_a(hd$n)veg3+1z('
 
 TEMPLATE_CONTEXT_PROCESSORS = (
     "django.contrib.auth.context_processors.auth",
@@ -156,6 +156,7 @@ INSTALLED_APPS = (
     'accounts',
     'home',
     'venture',
+    'mentor',
 )
 
 AUTHENTICATION_BACKENDS = (

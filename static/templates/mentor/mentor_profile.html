@@ -1,17 +1,16 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
 {% include 'navmain.html' %}
 
 <!--=== Breadcrumbs ===-->
 <div class="breadcrumbs margin-bottom-40">
 	<div class="container">
-        <h1 class="color-green pull-left">My Account: Update Venture</h1>
+        <h1 class="color-green pull-left">My Account: Profile</h1>
         <ul class="pull-right breadcrumb">
             <li><a href="/">Home</a> <span class="divider">/</span></li>
-            <li><a href="{% url 'ent_home' %}">Account</a> <span class="divider">/</span></li>
-            <li class="active" >Ventures</li>
+            <li><a href="/mentor/home">Account</a> <span class="divider">/</span></li>
+            <li class="active">Profile</li>
         </ul>
     </div><!--/container-->
 </div><!--/breadcrumbs-->
@@ -27,16 +26,16 @@
                         
              <ul class="nav nav-tabs nav-stacked">
                 <li>
-                <a href="{% url 'ent_home' %}">Home</a>
-                </li>
-                <li >
-                <a href="{% url 'userena_profile_edit' user.username %}">Profile</a>
+                <a href="/mentor/home/">Home</a>
                 </li>
                 <li class="active">
-                <a href="{% url 'venture_list' %}">Ventures</a>
+                <a href="/mentor/profile">Profile</a>
+                </li>
+                <li>
+                <a href="/mentor/applicants/">Applicants</a>
                 </li> 
                 <li>
-                <a href="{% url 'venture_application' %}">Applications</a>
+                <a href="/mentor/applications/">Applications</a>
                 </li>
                  <br>
                  <br>
@@ -47,34 +46,32 @@
         <div class = "span1"></div>
     
     	<div class="span8">
-        <br>
 
-          <h1>Update Venture</h1>
-          <br>
+                <h2>Profile</h2>
 
-          <form action = "" method = "post"> {% csrf_token %}
-            
-            {{form.as_p}}
+                     {% for field in form %}
+                     {{ field.error }}
+                     {% endfor %}
 
-            <input type = "submit" value = "Update"></input>
-          </form>
-                    	
+                    <form class="log-page pull-left" action = "/mentor/profile/edit/" method = "post">
+                    {% csrf_token %}
+
+                    {{ form.as_p }}
+
+                    <input type = "submit" value = "Update" />
+
+                </form>
+
+        	
         	            
-        </div><!--/span8-->
+        </div><!--/span9-->
        
         
     </div><!--/row-fluid-->
 </div><!--/container-->		
 <!--=== End Content Part ===-->
 
-
-
 {% endblock %}
 
-
-
-
-
 {% block javascript %}
-  $("#account").addClass('active');
 {% endblock %}

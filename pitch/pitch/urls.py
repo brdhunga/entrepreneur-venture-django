@@ -15,6 +15,10 @@ from home.views import TemplateViewWithContext
 from django.contrib import admin
 admin.autodiscover()
 
+
+#random
+from try1 import try2
+
 urlpatterns = patterns('',
     #Static pages
     (r'^$', TemplateViewWithContext.as_view(template_name="main/home.html", extra_context = {'current' : 'home'})),
@@ -34,11 +38,13 @@ urlpatterns = patterns('',
     #account profile
     (r'^ent/', include('venture.urls')),
 
+    #mentor profile
+    (r'^mentor/', include('mentor.urls')),
+
+    #experiment
+    url(r'^exp/$', try2),
+
     #usercheck for now, add a decorator later
     url(r'^usercheck/', 'accounts.views.usertype_check', name = 'usertype_check' ),
-
-    #mentor home
-    (r'^mentor/home/', TemplateView.as_view(template_name="mentor/mentor_home.html")),
-
 
 )

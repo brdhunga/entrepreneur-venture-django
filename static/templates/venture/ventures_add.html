@@ -36,7 +36,7 @@
                 <a href="{% url 'venture_list' %}">Ventures</a>
                 </li> 
                 <li>
-                <a href="/ent/applications/">Applications</a>
+                <a href="{% url 'venture_application' %}">Applications</a>
                 </li>
                  <br>
                  <br>
@@ -46,13 +46,14 @@
         </div>
         <div class = "span1"></div>
     
-    	<div class="span8">
+    	<div class="span8 step-box">
         <br>
 
           <h1>Add New Ventures</h1>
-          <br>
+          <br />
 
-          <form action = "" method = "post"> {% csrf_token %}
+          <form action ="" method = "post">
+           {% csrf_token %}
             
             {{form.as_p}}
 
