@@ -6,7 +6,11 @@ from venture.forms import VentureForm
 from venture.models import Venture
 
 
+
 class VentureListView(ListView):
+    '''
+    outputs list of all ventures to entrepreneurs
+    '''
     model = Venture
     template_name = 'venture/ventures_all.html'
 
@@ -17,7 +21,12 @@ class VentureListView(ListView):
         context = super(VentureListView, self).get_context_data(**kwargs)
         return context
 
+
+
 class VentureCreateView(CreateView):
+    '''
+    creates new venture for entrepreneurs
+    '''
     form_class = VentureForm
     model = Venture
     template_name = 'venture/ventures_add.html'
@@ -28,7 +37,12 @@ class VentureCreateView(CreateView):
         return super(VentureCreateView, self).form_valid(form)
 
 
+
+
 class VentureUpdateView(UpdateView):
+    '''
+    updates a specific venture
+    '''
     form_class = VentureForm
     model = Venture
     template_name = 'venture/ventures_edit.html'
@@ -39,7 +53,12 @@ class VentureUpdateView(UpdateView):
         return obj
 
 
-class VentureApplicationView(ListView):
+
+
+class VentureApplicationView(VentureListView):
+    '''
+    lists all the ventures
+    '''
     model = Venture
     template_name = 'venture/ventures_applications.html'
 
@@ -56,7 +75,21 @@ class VentureApplicationView(ListView):
 @csrf_exempt
 def all_ventures(request):
     user = request.user
-    the_json = serializers.serialize('json', Venture.objects.filter(user = user), indent=2, use_natural_keys=True)
-    print "all the ventures are"
+    the_json = serializers.serialize('json',
+                Venture.objects.filter(user = user),
+                indent=2, use_natural_keys=True)
+    return HttpResponse(the_json)
+
+
+
+
+@csrf_exempt
+def apply_ventures(request):
+    user = request.user
+    mentor_name = request.POST['mentor_name']
+    mentor_username = request.POST['mentor_username']
+    chosen_venture = request.POST['chosen_venture']
+    print "the response"
+    the_json = str(mentor_name)+" "+str(mentor_username)+" "+str(chosen_venture)+" "+str(user)
     print the_json
     return HttpResponse(the_json)

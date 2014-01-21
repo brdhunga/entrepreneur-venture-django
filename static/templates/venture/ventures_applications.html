@@ -84,7 +84,7 @@ p.green{
 
             <div class = "row-fluid step-box" id = "apply_venture_div">
               <h1 class = "red">Step 3: Apply </h1>
-              <div class = "row-fluid apply_venture_inner"></div> 
+              <div class = "row-fluid apply_venture_inner" id="apply_venture_inner"></div> 
             </div>
         <br>
         <br>
@@ -112,6 +112,7 @@ p.green{
   
 
   //Find mentors on click button
+
   $("#search_venture_button").click(function(){
        $.ajax({
             type: 'POST',
@@ -123,7 +124,6 @@ p.green{
             success: function(the_json){
                 $("#wait_div1").hide();
                 json_obj = jQuery.parseJSON(the_json)
-                //console.log(json_obj.length);
                 $("#choose_venture_div").show();
                 $("#choose_venture_inner").empty();
                 var table_begin = "<table class='table table-striped'><thead><tr><th>#</th><th>Name</th><th>Username</th><th>Address</th><th>ZipCode</th><th></th></tr></thead><tbody>";
@@ -138,13 +138,15 @@ p.green{
                                     "<td>"+"<button class='btn select_btn' >Select</button>"+"</td></tr>";
                 }
                 $("#choose_venture_inner").append(table_begin+table_middle+table_end);
-                console.log(table_begin+table_middle+table_end);        
 
                 }
       });
   });
 
-//Let users select a mentor: opens step-3 div and attaches username and name of mentor
+
+
+    //Let users select a mentor: opens step-3 div and attaches username and name of mentor
+
     $( "#choose_venture_inner" ).on( "click", "button.select_btn", function() {
         var name = $(this).parent().parent().children(":first").next().html();
         var username = $(this).parent().parent().children(":first").next().next().html();
@@ -161,11 +163,10 @@ p.green{
                     $("#wait_div2").hide();
                     list_of_ventures = the_json;
                     json_obj = jQuery.parseJSON(the_json)
-                    //alert(json_obj[0]["fields"]["venture_name"]);
                     $("#apply_venture_div").show();
                     var table_begin = "<table class = 'table table-striped'><thead><tr><th>Name of Mentor</th><th>Username</th><th>Choose Venture</th><th></th></tr></tr></thead><tbody>";
-                    var table_mid_1 = "<tr><td>"+name+"</td><td>"+username+"</td><td><select>";
-                    var table_mid_2 = ""
+                    var table_mid_1 = "<tr><td>"+name+"</td><td>"+username+"</td><td><select id = 'chosen_venture'>";
+                    var table_mid_2 = "<option></option>";
                     for (count=0; count < json_obj.length; count++){
                         table_mid_2 += "<option value ='"+json_obj[count]['fields']['venture_name']+"'>"+json_obj[count]['fields']['venture_name']+"</option>";
                     
@@ -174,12 +175,51 @@ p.green{
                     var table_end = "</tbody></table>";
                     var table_mid = table_mid_1+table_mid_2+table_mid_3;
                     var full_table = table_begin + table_mid + table_end;
-                    alert(full_table);
                     $(".apply_venture_inner").append(full_table);
 
 
             }
         });
     });
+
+
+    //A json function that sends the chosed venture application
+    //from above to the specified mentor from above.
+
+    $("#apply_venture_inner").on("click","button.apply_venture_btn",function(){
+        
+        var mentor_name = $(this).parent().parent().children(":first").html();
+        var mentor_username = $(this).parent().parent().children(":first").next().html();
+        var chosen_venture = $("#chosen_venture").val();
+        if (chosen_venture == ""){
+            alert("Please choose a venture");
+        } else {
+
+            //Ajax here
+            $.ajax({
+                type: 'POST',
+                url: '/ent/apply/',
+                data: { 
+                        'mentor_name': mentor_name,
+                        'mentor_username': mentor_username,
+                        'chosen_venture' : chosen_venture, 
+                       },
+                beforeSend : function(){
+                    //beforeSend actions
+                },
+                success: function(the_json){
+                    
+                    //Json success actions
+                    alert(the_json);
+
+            }
+        });
+
+        }
+
+
+    });
+
+
 
 {% endblock %}
