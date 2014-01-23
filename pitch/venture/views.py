@@ -4,6 +4,7 @@ from django.core import serializers
 from django.views.generic import CreateView, ListView, UpdateView
 from venture.forms import VentureForm
 from venture.models import Venture
+from mentor.models import Mentor_Venture
 
 
 
@@ -55,6 +56,7 @@ class VentureUpdateView(UpdateView):
 
 
 
+
 class VentureApplicationView(VentureListView):
     '''
     lists all the ventures
@@ -85,11 +87,18 @@ def all_ventures(request):
 
 @csrf_exempt
 def apply_ventures(request):
-    user = request.user
-    mentor_name = request.POST['mentor_name']
-    mentor_username = request.POST['mentor_username']
-    chosen_venture = request.POST['chosen_venture']
-    print "the response"
-    the_json = str(mentor_name)+" "+str(mentor_username)+" "+str(chosen_venture)+" "+str(user)
-    print the_json
-    return HttpResponse(the_json)
+    if request.method == 'POST':
+        user = request.user
+        mentor_name = request.POST['mentor_name']
+        mentor_username = request.POST['mentor_username']
+        chosen_venture = request.POST['chosen_venture']
+        venture = Venture.objects.filter(user = user, venture_name = chosen_venture)
+        
+        return HttpResponse("Something went wrong")
+        
+        
+
+
+    
+
+    
