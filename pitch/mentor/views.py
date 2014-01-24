@@ -11,6 +11,21 @@ from mentor.models import Mentor_Venture, Profile
 from mentor.forms import ProfileForm
 
 
+
+
+#check if mentor profile exists, if not create
+def mentor_view_profile(request):
+    try:
+        obj = Profile.objects.get(username = request.user)
+        return HttpResponseRedirect("/mentor/profile/edit/")
+    except Profile.DoesNotExist:
+        obj = Profile(username = request.user, address = "123 Street")
+        obj.save()
+        return HttpResponseRedirect("/mentor/profile/edit")
+
+
+
+#edit mentor profile
 class Mentor_Edit_Profile(UpdateView):
     '''
     Need a query set to use updateview. Mentor_View_Profile will create
@@ -30,12 +45,14 @@ class Mentor_Edit_Profile(UpdateView):
         return super(Mentor_Edit_Profile, self).form_valid(form)
 
 
+
+
 @csrf_exempt
 def mentor(request):
     if request.method == 'POST':
         print "the post"
         print request.POST['title']
-        data = serializers.serialize('json', Venture.objects.all())
+        data = serializers.serialize('json', Venture.objects.filter(user = request.user))
         print "the json is"
         print data
         return HttpResponse(data)
@@ -45,18 +62,9 @@ def mentor(request):
 
 
 
-def mentor_view_profile(request):
-    try:
-        obj = Profile.objects.get(username = request.user)
-        return HttpResponseRedirect("/mentor/profile/edit")
-    except Profile.DoesNotExist:
-        obj = Profile(username = request.user, address = "123 Street")
-        obj.save()
-        return HttpResponseRedirect("/mentor/profile/edit")
 
 
 @csrf_exempt
 def mentor_search(request):
     the_json = serializers.serialize('json', MentorProfile.objects.all(), indent=2, use_natural_keys=True)
     return HttpResponse(the_json)
-   

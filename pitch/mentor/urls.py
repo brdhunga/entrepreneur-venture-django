@@ -11,4 +11,3 @@ urlpatterns = patterns('',
     url(r'^search/$', mentor_search, name = 'mentor_search'),
     
 )
-

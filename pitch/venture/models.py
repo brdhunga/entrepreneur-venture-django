@@ -3,9 +3,8 @@ from django.contrib.auth.models import User
 
 from randoid import randomid
 
-'''
-This is a multi-page form.
-'''
+
+
 class Venture(models.Model):
     # Page 1
     user = models.ForeignKey(User, verbose_name=('user'), related_name='user_venture')
@@ -41,3 +40,33 @@ class Venture(models.Model):
         
     def __unicode__(self, ):
         return self.venture_name
+
+
+
+
+
+
+
+class Profile(models.Model):
+    username = models.OneToOneField(User, related_name = "entreprenuer_profile")
+    dob = models.DateField(verbose_name = "Date of Birth" , 
+                            max_length = 100, blank = True, null = True)
+    state_residency = models.CharField(verbose_name = 'State of Residency',
+                            blank = True, null = True, max_length = 2)
+    city_residency = models.CharField(verbose_name = 'City of Residency',
+                            blank = True, null = True, max_length = 20)
+    state_office = models.CharField(verbose_name = 'State of Office',
+                            blank = True, null = True, max_length = 2)
+    city_office = models.CharField(verbose_name = 'City of Office',
+                            blank = True, null = True, max_length = 20)
+    address = models.CharField(max_length = 200, blank = True, null = True)
+    zipcode = models.IntegerField(max_length = 6, blank = True, null = True )
+
+    def natural_key(self):
+        return[self.username]
+
+    def __unicode__(self, ):
+        if self.name is None:
+            return "Name"
+        else:
+            return str(self.username)

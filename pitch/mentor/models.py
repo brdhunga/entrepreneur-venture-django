@@ -5,6 +5,8 @@ from django.contrib.auth.models import User
 
 
 
+
+
 class Profile(models.Model):
     username = models.OneToOneField(User)
     name = models.CharField(max_length = 100, blank = True, null = True)
@@ -54,17 +56,9 @@ class Mentor_Venture(models.Model):
     extra_notes = models.TextField(verbose_name='Notes ', blank = True, null = True, )
 
     def __unicode__(self, ):
-        return self.name
+        return unicode(self.venture_name)
 
 
 
-
-
-class Clients(models.Model):
-    mentor_username = models.ForeignKey(User, verbose_name='Mentor username', related_name='clients_mentor')
-    client_username = models.CharField(verbose_name = 'Clients', max_length = 50, null = True, blank = True)
-
-    def __unicode__(self, ):
-        return self.mentor_username
 
 
