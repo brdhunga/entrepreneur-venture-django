@@ -8,8 +8,8 @@
         <h1 class="color-green pull-left">My Account: Add Ventures</h1>
         <ul class="pull-right breadcrumb">
             <li><a href="/">Home</a> <span class="divider">/</span></li>
-            <li><a href="/ent/home">Account</a> <span class="divider">/</span></li>
-            <li><a href="/ent/home">Ventures</a> <span class="divider">/</span></li>
+            <li><a href="/usercheck/">Account</a> <span class="divider">/</span></li>
+            <li><a href = "{% url 'venture_list' %}">Ventures</a> <span class="divider">/</span></li>
             <li class="active">Add</li>
         </ul>
     </div><!--/container-->
@@ -26,16 +26,16 @@
                         
              <ul class="nav nav-tabs nav-stacked">
                 <li>
-                <a href="/ent/home/">Home</a>
+                <a href="{% url 'ent_home' %}">Home</a>
                 </li>
                 <li>
                 <a href="{% url 'ent_profile' %}">Profile</a>
                 </li>
-                <li  class="active">
-                <a href="/ent/ventures/">Ventures</a>
+                <li class="active">
+                <a href="{% url 'venture_list' %}">Ventures</a>
                 </li> 
                 <li>
-                <a href="/ent/applications/">Applications</a>
+                <a href="{% url 'apply' %}">Applications</a>
                 </li>
                  <br>
                  <br>

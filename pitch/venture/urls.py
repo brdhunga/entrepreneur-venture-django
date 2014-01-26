@@ -13,9 +13,9 @@ urlpatterns = patterns('',
     url(r'^ventures/add/$', VentureCreateView.as_view(), name = "venture_add"),
     url(r'^ventures/$', VentureListView.as_view(), name='venture_list'),
     url(r'^ventures/edit/(?P<id>[\w-]+)$', VentureUpdateView.as_view(), name = 'venture_edit'),
-    url(r'^ventures/application/$', VentureApplicationView.as_view(), name = 'venture_application'),
+    url(r'^ventures/application/$', VentureApplicationView.as_view(), name = 'apply'),
     url(r'^all_ventures/$', all_ventures, name='all_ventures'),
-    url(r'^apply/', apply_ventures , name = 'apply_ventures'),
+    url(r'^apply/$', apply_ventures, name='apply_ventures'),
 )
 
 #url( r'^blogs/(?P<post_slug>[-a-zA-Z0-9]+)/?$', 'blog.views.single_blog', name = 'single_blog'),

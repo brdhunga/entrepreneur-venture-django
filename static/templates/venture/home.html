@@ -10,8 +10,8 @@
         <h1 class="color-green pull-left">My Account:  Home</h1>
         <ul class="pull-right breadcrumb">
             <li><a href="/">Home</a> <span class="divider">/</span></li>
-            <li><a href="/ent/home">Account</a> <span class="divider">/</span></li>
-            <li class="active">Home</li>
+            <li><a href="/userchekc/">Account</a> <span class="divider">/</span></li>
+            <li class="active" href = "{% url 'ent_home' %}">Home</li>
         </ul>
     </div><!--/container-->
 </div><!--/breadcrumbs-->
@@ -26,22 +26,22 @@
             <br>
                         
              <ul class="nav nav-tabs nav-stacked">
-                <li class="side-menu active">
+                <li class = "active">
                 <a href="{% url 'ent_home' %}">Home</a>
                 </li>
-                <li class="side-menu">
+                <li>
                 <a href="{% url 'ent_profile' %}">Profile</a>
                 </li>
-                <li class="side-menu">
-                <a href="/ent/ventures/">Ventures</a>
+                <li>
+                <a href="{% url 'venture_list' %}">Ventures</a>
                 </li> 
-                <li class="side-menu">
-                <a href="{% url 'venture_application' %}">Applications</a>
+                <li>
+                <a href="{% url 'apply' %}">Applications</a>
                 </li>
                  <br>
                  <br>
             
-            </ul>      
+            </ul>    
                         
         </div>
         <div class = "span1"></div>

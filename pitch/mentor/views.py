@@ -1,6 +1,6 @@
 from django.views.generic.edit import UpdateView, FormView
 from django.http import HttpResponseRedirect, HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.core import serializers
 from django.views.decorators.csrf import csrf_exempt
 
@@ -22,6 +22,7 @@ def mentor_view_profile(request):
         obj = Profile(username = request.user, address = "123 Street")
         obj.save()
         return HttpResponseRedirect("/mentor/profile/edit")
+
 
 
 
@@ -47,6 +48,34 @@ class Mentor_Edit_Profile(UpdateView):
 
 
 
+
+
+class Mentor_Venture_Edit(UpdateView):
+    '''
+    Need a query set to use updateview. Mentor_View_Profile will create
+    a query if Mentor Profile Model is empty. 
+    '''
+    model = Mentor_Venture
+    template_name = 'mentor/mentor_update.html'
+    exclude = ['user', 'unique_id', 'zipcode']
+    success_url = '/mentor/home/'
+
+
+    def get_object(self):
+        self.id = self.kwargs['id']
+        obj = get_object_or_404(Mentor_Venture.objects.filter(user = self.request.user, unique_id = self.id))
+        print "secong the object"
+        print obj
+        print "second id"
+        print self.id
+        return obj
+
+
+
+
+
+
+
 @csrf_exempt
 def mentor(request):
     if request.method == 'POST':
@@ -56,7 +85,6 @@ def mentor(request):
         print "the json is"
         print data
         return HttpResponse(data)
-
     else:
         return render(request, "exp_template.html", {"name":name})
 
@@ -68,3 +96,20 @@ def mentor(request):
 def mentor_search(request):
     the_json = serializers.serialize('json', MentorProfile.objects.all(), indent=2, use_natural_keys=True)
     return HttpResponse(the_json)
+
+
+
+def mentor_venture_edit(request, id):
+    return HttpResponse(id)
+
+
+
+
+def Mentor_List_Applications(request):
+    return HttpResponse("hello")
+
+
+
+
+def Mentor_List_Applicants(request):
+    return HttpResponse("the applcants")

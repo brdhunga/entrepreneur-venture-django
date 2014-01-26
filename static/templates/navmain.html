@@ -2,12 +2,12 @@
     <div class="container">                 
         <div class="row-fluid">
             <ul class="loginbar inline">
-                <li><a href="mailto:info@anybiz.com"><i class="icon-envelope-alt"></i> info@pitchbase.net</a></li> 
+                <li><a href="mailto:info@anybiz.com"><i class="icon-envelope-alt"></i> info2@pitchbase.net</a></li> 
                 <li><a><i class="icon-phone-sign"></i> 010 4202 2656</a></li>
                 {% if user.is_authenticated %} 
-                <li><a href="{% url 'userena_signin' %}"><i class="icon-user"></i> LOGIN</a></li>
+                <li><a href="{% url 'userena_signin' %}"><i class="icon-user"></i> LOGOUT</a></li>
                 {% else %}
-                <li><a href="{% url 'userena_signout' %}"><i class="icon-user"></i> LOGOUT</a></li>
+                <li><a href="{% url 'userena_signout' %}"><i class="icon-user"></i> LOGIN</a></li>
                 {% endif %}
 
             </ul>
@@ -37,7 +37,14 @@
                         <li id = "home" > <a href="/" >Home  </a> </li>
                         <li id = "services"> <a href="/services/" >What We Do  </a> </li>
                         <li id = "pricing" > <a href="/price/" > Pricing  </a> </li>
-                         <li id = "account" > <a href="{% url 'ent_home' %}" > Account  </a> </li>
+                        {% if user.is_authenticated %}
+                        <li id = "account" > <a href="/usercheck/" > Account  </a> </li>
+                        {% else %}
+                         <li id = "account" > <a href="{% url 'userena_signin' %}" > Account  </a> </li>   
+                        {% endif %}
+
+                         
+                        }
 
 
                         <!--<li>
@@ -69,3 +76,4 @@
     </div><!-- /container -->               
 </div><!--/header -->      
 <!--=== End Header ===-->
+

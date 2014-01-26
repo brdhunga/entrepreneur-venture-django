@@ -1,68 +1,69 @@
-
 {% extends 'base.html' %}
 
 {% block content %}
 {% include 'navmain.html' %}
 
-
 <!--=== Breadcrumbs ===-->
 <div class="breadcrumbs margin-bottom-40">
-  <div class="container">
+	<div class="container">
         <h1 class="color-green pull-left">My Account: Profile</h1>
         <ul class="pull-right breadcrumb">
             <li><a href="/">Home</a> <span class="divider">/</span></li>
-            <li><a href="{% url 'ent_home' %}">Account</a> <span class="divider">/</span></li>
-            <li class="active" href = "{% url 'ent_profile' %}">Profile</li>
+            <li><a href="/usertype/">Account</a> <span class="divider">/</span></li>
+            <li class="active" href = "{% url 'mentor_list_applications' %}">Applications</li>
         </ul>
     </div><!--/container-->
 </div><!--/breadcrumbs-->
 <!--=== End Breadcrumbs ===-->
 
 <!--=== Content Part ===-->
-<div class="container">   
-  <div class="row-fluid">
+<div class="container">		
+	<div class="row-fluid">
         <div class = "span3">
             
              <br>
             <br>
-       
+                        
              <ul class="nav nav-tabs nav-stacked">
-                <li>
-                <a href="{% url 'ent_home' %}">Home</a>
+                <li >
+                <a href="{% url 'mentor_home' %}">Home</a>
+                </li>
+                <li >
+                <a href="{% url 'mentor_profile' %}">Profile</a>
                 </li>
                 <li class="active">
-                <a href="{% url 'ent_profile' %}">Profile</a>
-                </li>
-                <li>
-                <a href="{% url 'venture_list' %}">Ventures</a>
+                <a href="{% url 'mentor_list_applications' %}">Applications</a>
                 </li> 
                 <li>
-                <a href="{% url 'apply' %}">Applications</a>
+                <a href="{% url 'mentor_list_applicants' %}">Applicants</a>
                 </li>
                  <br>
                  <br>
             
-            </ul>      
+            </ul>     
                         
         </div>
         <div class = "span1"></div>
     
-          <div class="span8">
+    	<div class="span8">
 
-                    <form action="/ent/profile/edit/" method="post">               
+                    <form action="" method="post">               
                       {% csrf_token %}
                       <fieldset>
-                        <legend>Edit Profile</legend>
+                        <legend>Edit Venture</legend>
                         {{ form.as_p }}
                       </fieldset>
                       <input type="submit" value = " Update" />
                     </form>
                          
-            </div><!--/span8-->
+        </div><!--/span8-->
        
         
     </div><!--/row-fluid-->
-</div><!--/container-->   
+</div><!--/container-->		
 <!--=== End Content Part ===-->
 
+{% endblock %}
+
+{% block javascript %}
 {% endblock %}

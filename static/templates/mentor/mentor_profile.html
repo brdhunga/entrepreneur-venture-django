@@ -9,8 +9,8 @@
         <h1 class="color-green pull-left">My Account: Profile</h1>
         <ul class="pull-right breadcrumb">
             <li><a href="/">Home</a> <span class="divider">/</span></li>
-            <li><a href="/mentor/home">Account</a> <span class="divider">/</span></li>
-            <li class="active">Profile</li>
+            <li><a href="/usertype/">Account</a> <span class="divider">/</span></li>
+            <li class="active" href = "{% url 'mentor_profile' %}">Profile</li>
         </ul>
     </div><!--/container-->
 </div><!--/breadcrumbs-->
@@ -25,22 +25,22 @@
             <br>
                         
              <ul class="nav nav-tabs nav-stacked">
-                <li>
-                <a href="/mentor/home/">Home</a>
+                <li >
+                <a href="{% url 'mentor_home' %}">Home</a>
                 </li>
                 <li class="active">
-                <a href="/mentor/profile">Profile</a>
+                <a href="{% url 'mentor_profile' %}">Profile</a>
                 </li>
                 <li>
-                <a href="/mentor/applicants/">Applicants</a>
+                <a href="{% url 'mentor_list_applications' %}">Applications</a>
                 </li> 
                 <li>
-                <a href="/mentor/applications/">Applications</a>
+                <a href="{% url 'mentor_list_applicants' %}">Applicants</a>
                 </li>
                  <br>
                  <br>
             
-            </ul>      
+            </ul>     
                         
         </div>
         <div class = "span1"></div>

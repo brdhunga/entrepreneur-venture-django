@@ -1,5 +1,4 @@
 {% extends 'base.html' %}
-{% load if_mentor %}
 
 {% block css %}
 <style>
@@ -47,7 +46,7 @@ p.green{
                 <a href="{% url 'venture_list' %}">Ventures</a>
                 </li> 
                 <li  class="active">
-                <a href="{% url 'venture_application' %}">Applications</a>
+                <a href="{% url 'apply' %}">Applications</a>
                 </li>
                  <br>
                  <br>
@@ -64,12 +63,7 @@ p.green{
 
                 <h1 class = "red">Step 1: Search </h1>
                 <button class = "btn" id = "search_venture_button" role = "button">Search</button>
-                {%  if if_mentor %}
-                <p>yes</p>
-                {% else %}
-                <p>no</p>
-                {% endif %}
-                
+                                               
             </div>
         <br>
         <br>

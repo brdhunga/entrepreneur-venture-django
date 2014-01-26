@@ -1,13 +1,11 @@
 from django import template
-
-
+from django.contrib.auth.models import User
 
 register = template.Library()
 
 
-def if_mentor():
-    u = context['request'].user
-    if u == "bivu":
-        return True
-    else:
-        return False
+
+@register.simple_tag
+def if_is_mentor(id):
+    return True
+    

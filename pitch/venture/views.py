@@ -149,13 +149,18 @@ def apply_ventures(request):
         chosen_venture = request.POST['chosen_venture']
         venture = Venture.objects.filter(user = applicant, venture_name = chosen_venture)
         if venture.exists():
-            venture = venture[0]
-            form = Mentor_Venture(user = mentor_username[0] , applicant = unicode(venture.user),
-                venture_name = venture.venture_name, unique_id = venture.unique_id,
-                industry = venture.industry)
+            check_duplicate = Mentor_Venture.objects.filter(user = mentor_username[0],
+                unique_id = venture[0].unique_id)
+            if not check_duplicate.exists:                
+                venture = venture[0]
+                form = Mentor_Venture(user = mentor_username[0] , applicant = unicode(venture.user),
+                    venture_name = venture.venture_name, unique_id = venture.unique_id,
+                    industry = venture.industry)
 
-            form.save()
-            return HttpResponse("Works")
+                form.save()
+                return HttpResponse("Works")
+            else:
+                return HttpResponse("Duplicate Exists")
         else:
             return HttpResponse("Does not work")
                 

@@ -31,7 +31,7 @@ class Mentor_Venture(models.Model):
     user = models.ForeignKey(User, verbose_name=('user'), related_name='user_mentor')
     applicant = models.CharField(verbose_name='Name of the applicant' , max_length = 100)
     venture_name = models.CharField(verbose_name='Name of the Venture' , max_length = 200)
-    unique_id = models.CharField(verbose_name='Unique nickname for the venture ', max_length = 10, unique = True, blank = True)
+    unique_id = models.CharField(verbose_name='Unique nickname for the venture ', max_length = 10,  blank = True)
     industry = models.CharField(verbose_name='Industry ', max_length = 200)
     website = models.URLField(verbose_name='Website (if any)', blank = True, null = True)
     legally_formed = models.BooleanField(verbose_name='Is it legally formed? ', default = False)
@@ -54,6 +54,9 @@ class Mentor_Venture(models.Model):
     created = models.DateTimeField(auto_now = True, auto_now_add = True)
     #extra
     extra_notes = models.TextField(verbose_name='Notes ', blank = True, null = True, )
+
+    class Meta:
+        ordering = ["-created"]
 
     def __unicode__(self, ):
         return unicode(self.venture_name)
