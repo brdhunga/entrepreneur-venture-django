@@ -5,10 +5,13 @@ from django.core import serializers
 from django.views.decorators.csrf import csrf_exempt
 
 
+from django.views.generic import CreateView, ListView, UpdateView
+
+
 from venture.models import Venture
 from mentor.models import Profile as MentorProfile
 from mentor.models import Mentor_Venture, Profile
-from mentor.forms import ProfileForm
+from mentor.forms import ProfileForm, Mentor_VentureForm
 
 
 
@@ -48,6 +51,36 @@ class Mentor_Edit_Profile(UpdateView):
 
 
 
+class Mentor_List_Applications(ListView):
+    '''
+    outputs list of all ventures copy that belongs to an entrepreneur
+    '''
+    model = Mentor_Venture
+    template_name = 'mentor/mentor_applications.html'
+
+    def get_queryset(self):
+        return Mentor_Venture.objects.filter(user= self.request.user)
+
+
+
+
+
+class Mentor_List_Applicants(ListView):
+    '''
+    outputs list of all unique applicants copy that have applied to a mentor
+    '''
+    paginate_by = 20
+    model = Mentor_Venture
+    template_name = 'mentor/mentor_applicants.html'
+
+    def get_queryset(self):
+        all_obj = Mentor_Venture.objects.filter(user = self.request.user)
+        obj = all_obj.values().distinct()
+        return obj
+
+
+
+
 
 
 class Mentor_Venture_Edit(UpdateView):
@@ -55,19 +88,14 @@ class Mentor_Venture_Edit(UpdateView):
     Need a query set to use updateview. Mentor_View_Profile will create
     a query if Mentor Profile Model is empty. 
     '''
-    model = Mentor_Venture
+    form_class = Mentor_VentureForm
     template_name = 'mentor/mentor_update.html'
-    exclude = ['user', 'unique_id', 'zipcode']
     success_url = '/mentor/home/'
 
 
     def get_object(self):
         self.id = self.kwargs['id']
         obj = get_object_or_404(Mentor_Venture.objects.filter(user = self.request.user, unique_id = self.id))
-        print "secong the object"
-        print obj
-        print "second id"
-        print self.id
         return obj
 
 
@@ -105,11 +133,6 @@ def mentor_venture_edit(request, id):
 
 
 
-def Mentor_List_Applications(request):
-    return HttpResponse("hello")
 
 
 
-
-def Mentor_List_Applicants(request):
-    return HttpResponse("the applcants")

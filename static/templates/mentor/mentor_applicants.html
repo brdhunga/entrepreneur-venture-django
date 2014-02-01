@@ -31,10 +31,10 @@
                 <li >
                 <a href="{% url 'mentor_profile' %}">Profile</a>
                 </li>
-                <li class="active">
+                <li >
                 <a href="{% url 'mentor_list_applications' %}">Applications</a>
                 </li> 
-                <li>
+                <li class="active">
                 <a href="{% url 'mentor_list_applicants' %}">Applicants</a>
                 </li>
                  <br>
@@ -53,22 +53,20 @@
               <thead>
                 <tr>
                   <th>INDEX</th>
-                  <th>VENTURE NAME</th>
-                  <th>ID</th>
-                  <th>APPLICANT</th>
-                  <th>DATE</th>
-                  <th>ACTION</th>
+                  <th>USERNAME</th>
+                  <th>EMAIL</th>
+                  <th>PROFILE</th>
+                  <th>APPLICATIONS</th>
                 </tr>
               </thead>
               <tbody>
               {% for ventures in object_list %}
                 <tr>
                   <td>{{ forloop.counter }}</td>
-                  <td>{{ ventures.venture_name }}</td>
-                  <td>{{ ventures.unique_id }}</td>
                   <td>{{ ventures.applicant }}</td>
-                  <td>{{ ventures.created }}</td>
-                  <td><a href = "/mentor/edit/{{ ventures.unique_id }}/">edit</a></td>
+                  <td>{{ ventures.email }}</td>
+                  <td><a href = "/profile/{{ ventures.applicant }}/" target = '_blank'>View Profile</a></td></td>
+                  <td><a href = "/mentor/{{ ventures.applicant }}/applications/" target = '_blank'>See Ventures</a></td>
                 </tr>
               {% endfor %}
                 

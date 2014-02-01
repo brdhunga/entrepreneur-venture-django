@@ -1,5 +1,7 @@
 from django.conf.urls import patterns, include, url
+
 from django.views.generic import TemplateView
+
 from venture.views import VentureListView, VentureCreateView, VentureUpdateView,\
                             VentureApplicationView, all_ventures, apply_ventures,\
                             Ent_Edit_Profile, ent_view_profile
@@ -17,5 +19,3 @@ urlpatterns = patterns('',
     url(r'^all_ventures/$', all_ventures, name='all_ventures'),
     url(r'^apply/$', apply_ventures, name='apply_ventures'),
 )
-
-#url( r'^blogs/(?P<post_slug>[-a-zA-Z0-9]+)/?$', 'blog.views.single_blog', name = 'single_blog'),

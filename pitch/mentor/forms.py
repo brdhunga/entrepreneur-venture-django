@@ -1,5 +1,5 @@
 from django import forms
-from mentor.models import  Profile
+from mentor.models import  Profile, Mentor_Venture
 '''
 class EntProfileForm(forms.ModelForm):
 
@@ -13,4 +13,9 @@ class ProfileForm(forms.ModelForm):
 		model = Profile
 		fields = ['name', 'address', 'zipcode']
 		
+
+class Mentor_VentureForm(forms.ModelForm):
+	class Meta:
+		model = Mentor_Venture
+		exclude = ['user', 'unique_id']
 

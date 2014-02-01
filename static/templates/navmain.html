@@ -5,9 +5,9 @@
                 <li><a href="mailto:info@anybiz.com"><i class="icon-envelope-alt"></i> info2@pitchbase.net</a></li> 
                 <li><a><i class="icon-phone-sign"></i> 010 4202 2656</a></li>
                 {% if user.is_authenticated %} 
-                <li><a href="{% url 'userena_signin' %}"><i class="icon-user"></i> LOGOUT</a></li>
+                <li><a href="{% url 'userena_signout' %}"><i class="icon-user"></i> LOGOUT</a></li>
                 {% else %}
-                <li><a href="{% url 'userena_signout' %}"><i class="icon-user"></i> LOGIN</a></li>
+                <li><a href="{% url 'userena_signin' %}"><i class="icon-user"></i> LOGIN</a></li>
                 {% endif %}
 
             </ul>

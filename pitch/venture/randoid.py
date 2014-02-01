@@ -1,6 +1,12 @@
 import random
 
+
+
 def randomid():
+    '''
+    Generate random id for each venture
+    The probability of duplication is slim based on permutation of choices and size
+    '''
     strings = "0123456789qwertyuioplkjhgfdsazxcvbnmMNBVCXZASDFGHJKLPOIUYTREWQ"
     rand_id = ""
     for x in range(0, 10):

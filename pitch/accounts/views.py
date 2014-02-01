@@ -3,20 +3,24 @@ from accounts.models import UserType
 from django.core.exceptions import ObjectDoesNotExist
 
 
-'''
-Check the type of the user and redirect as required.
-A custom decorator might be better
-'''
+
 def usertype_check(request):
+    '''
+    Check the type of the user and redirect as required.
+    usertype = men are mentors
+    usertype = ent are entrepreneurs
+    if usertype not specified return to home
+    A custom decorator might be better
+    '''
     if request.user.is_authenticated():
         user = request.user
-        print user
         try:
             user = UserType.objects.get(user = user)
             if user.usertype == "Ent":
-                print user.usertype
                 return HttpResponseRedirect('/ent/home/')
             elif user.usertype == "Men":
                 return HttpResponseRedirect('/mentor/home/')
+            else:
+                return HttpResponseRedirect('/') #maybe make a profile not found page
         except ObjectDoesNotExist:
-            return HttpResponseRedirect('/home/')
+            return HttpResponseRedirect('/ent/home/')
