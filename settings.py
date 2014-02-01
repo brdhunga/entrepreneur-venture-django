@@ -5,11 +5,11 @@ DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 
-EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST = ''
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'brdhunga@gmail.com'
-EMAIL_HOST_PASSWORD = 'Bnmjh10z@gmai2'
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD = ''
 
 
 
@@ -17,18 +17,18 @@ PROJECT_PATH = os.path.dirname(os.getcwd())
 
 
 ADMINS = (
-    ('Bivu Raj Dhungana', 'brdhunga@gmail.com'),
+    ('', ''),
 )
 
 MANAGERS = ADMINS
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'pitchred',                      # Or path to database file if using sqlite3.
-        'USER': 'bivu',
-        'PASSWORD': 'Bnmjh10z@pos',
-        'HOST': 'localhost',                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
+        'ENGINE': '', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
+        'NAME': '',                      # Or path to database file if using sqlite3.
+        'USER': '',
+        'PASSWORD': '',
+        'HOST': '',                      # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
         'PORT': '',                      # Set to empty string for default.
     }
 }
@@ -145,15 +145,13 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # Uncomment the next line to enable the admin:
     'django.contrib.admin',
-    # Uncomment the next line to enable admin documentation:
     'django.contrib.admindocs',
     'guardian',
     'easy_thumbnails',
     'userena',
     'accounts',
-    'home',
+    'mentor',
     'venture',
 )
 
